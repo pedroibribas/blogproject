@@ -1,0 +1,39 @@
+.postContainer {
+  max-width: 768px;
+
+  .postCategories {
+    display: flex;
+    gap: 0.75rem;
+
+    .postCategory {
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.75rem;
+      background: #2a325e;
+      color: var(--white);
+      font-size: 0.85rem;
+    }
+  }
+
+  .postTitle {
+    margin-top: 0.75rem;
+    color: #000;
+    font-size: 1.75rem;
+  }
+
+  .postTimestamp {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #000;
+  }
+
+  .postDescription {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 1rem;
+    color: #000;
+    line-height: 1.5;
+  }
+}

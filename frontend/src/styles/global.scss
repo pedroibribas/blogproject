@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+:root {
+  --white: #fff;
+
+  --m-page: 4rem 2rem 0 4rem;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Source Serif Pro', 'Times New Roman', Times, serif;
+  color: rgb(62, 62, 62);
+}

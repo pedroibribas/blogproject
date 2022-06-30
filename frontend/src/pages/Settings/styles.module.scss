@@ -1,0 +1,76 @@
+.settingsContainer {
+  display: flex;
+}
+
+.settingsContent {
+  flex: 9;
+  padding: 4rem 2rem 0 6rem;
+
+  .settingsHeading {
+    max-width: 756px;
+    display: flex;
+    justify-content: space-between;
+
+    .settingsTitle {
+      font-size: 2rem;
+    }
+
+    .deleteAccount {
+      color: #ff6262;
+      font-weight: 600;
+    }
+  }
+
+  form {
+    margin-top: 3rem;
+
+    input {
+      width: 35%;
+      height: 2.5rem;
+      margin-top: 0.25rem;
+      padding-left: 0.5rem;
+      font-size: 1rem;
+    }
+
+    button {
+      height: 2rem;
+      margin-top: 1rem;
+      padding: 0 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #000;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .formGroup {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1.25rem;
+
+      .settingsLabel {
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .fileInputControl {
+        img {
+          width: 150px;
+          height: 150px;
+          margin-top: 0.25rem;
+          border-radius: 1.5rem;
+        }
+
+        svg {
+          margin-left: 1rem;
+          font-size: 1.25rem;
+          cursor: pointer;
+        }
+
+        input[type='file'] {
+          display: none;
+        }
+      }
+    }
+  }
+}

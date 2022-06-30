@@ -1,0 +1,49 @@
+.loginContainer {
+  margin: var(--m-page);
+
+  .loginTitle {
+    font-size: 2rem;
+  }
+}
+
+.loginContent {
+  width: 25%;
+  margin: 0 auto;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
+
+    .formGroup {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1.25rem;
+
+      .loginInputLabel {
+        font-weight: 600;
+      }
+
+      input {
+        height: 2.75rem;
+        margin-top: 0.25rem;
+        padding-left: 0.5rem;
+        border: 1px solid #5a5a5a;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+      }
+    }
+
+    button {
+      height: 2.75rem;
+      margin-top: 1rem;
+      padding: 0 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #000;
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+}
