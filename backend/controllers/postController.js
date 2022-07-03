@@ -3,8 +3,33 @@ const { default: mongoose } = require('mongoose');
 const Post = require('../models/postModel');
 const User = require('../models/userModel');
 
-// Get posts | Private | GET /api/posts
+// Get posts | Public | GET /api/posts
 const getPosts = asyncHandler(async (req, res) => {
+  const posts = await Post.find();
+  res.status(200).json(posts);
+});
+
+// Set post | Private | POST /api/posts
+const setPost = asyncHandler(async (req, res) => {
+  const { title, text } = req.body;
+
+  if (!title | !text) {
+    res.status(400);
+    throw new Error('Todos os campos são obrigatórios');
+  };
+
+  const post = await Post.create({
+    user: req.user.id,
+    username: req.user.username,
+    title,
+    text,
+  });
+
+  res.status(200).json(post);
+});
+
+// Get posts | Private | GET /api/posts/:id
+const getUserPosts = asyncHandler(async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(req.query.user)) {
     res.status(400);
     throw new Error('Usuário inválido');
@@ -20,24 +45,6 @@ const getPosts = asyncHandler(async (req, res) => {
   const posts = await Post.find({ user: req.query.user });
 
   res.status(200).json(posts);
-});
-
-// Set post | Private | POST /api/posts
-const setPost = asyncHandler(async (req, res) => {
-  const { title, text } = req.body;
-
-  if (!title | !text) {
-    res.status(400);
-    throw new Error('Todos os campos são obrigatórios');
-  };
-
-  const post = await Post.create({
-    title,
-    text,
-    user: req.user.id
-  });
-
-  res.status(200).json(post);
 });
 
 // Get post | Public | GET /api/posts/:id

@@ -1,31 +1,17 @@
 import Post from './Post';
 import styles from './styles.module.scss';
 
-function Posts() {
+function Posts({ posts }) {
   return (
     <div className={styles.postsContainer}>
-      <div>
-        <Post />
-        <div className={styles.postDivider} />
-      </div>
-      <div>
-        <Post />
-        <div className={styles.postDivider} />
-      </div>
-      <div>
-        <Post />
-        <div className={styles.postDivider} />
-      </div>
-      <div>
-        <Post />
-        <div className={styles.postDivider} />
-      </div>
-      <div>
-        <Post />
-        <div className={styles.postDivider} />
-      </div>
+      {posts.map(post => (
+        <Post
+          key={post._id}
+          post={post}
+        />
+      ))}
     </div>
-  );
+  )
 };
 
 export default Posts;
