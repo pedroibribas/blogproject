@@ -1,19 +1,27 @@
 .registerContainer {
-  margin: var(--m-page);
+  max-width: 375px;
+  margin: 2rem auto 0;
 
   .registerTitle {
+    display: block;
     font-size: 2rem;
   }
-}
 
-.registerContent {
-  width: 25%;
-  margin: 0 auto;
+  .registerErrorMessage {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 0.25rem;
+    padding-left: 1rem;
+    background: rgb(255, 95, 95);
+    color: white;
+  }
 
   form {
     display: flex;
     flex-direction: column;
-    margin-top: 6rem;
+    margin-top: 3rem;
 
     .formGroup {
       display: flex;

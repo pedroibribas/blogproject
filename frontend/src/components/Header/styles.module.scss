@@ -41,29 +41,29 @@
     gap: 0.75rem;
     height: 4.5rem;
 
-    img {
-      width: 45px;
-      height: 45px;
-      margin-top: 0.25rem;
-      clip-path: circle();
-      object-fit: cover;
-    }
-
-    .headerLogout {
+    .headerUsername {
       display: flex;
-      align-self: center;
-      gap: 0.25rem;
-      font-size: 1.25rem;
+      align-items: center;
+      height: 2.25rem;
+      padding: 0 1rem;
+      border-radius: 1rem;
+      border: 1px solid #000;
+      font-size: 1rem;
     }
-  }
 
-  .headerBtn {
-    display: flex;
-    align-items: center;
-    height: 2.25rem;
-    padding: 0 1rem;
-    border-radius: 1rem;
-    background: #000;
-    color: var(--white);
+    .headerBtn {
+      display: flex;
+      align-items: center;
+      height: 2.25rem;
+      padding: 0 1rem;
+      border-radius: 1rem;
+      background: #000;
+      color: var(--white);
+      font-size: 1rem;
+
+      svg {
+        margin-left: 0.25rem;
+      }
+    }
   }
 }

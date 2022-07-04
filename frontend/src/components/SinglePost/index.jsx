@@ -1,29 +1,27 @@
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import styles from './styles.module.scss';
 
-function SinglePost() {
+function SinglePost({ post }) {
   return (
     <div className={styles.singlePostContainer}>
-      <div className={styles.singlePostInfo}>
-        <span className={styles.singlePostAuthor}>Name</span>
-        <span className={styles.singlePostTimestamp}>1 hour ago</span>
-      </div>
-
-      <h1 className={styles.singlePostTitle}>
-        Title
-        <div className={styles.singlePostEdit}>
-          <FaEdit />
-          <FaTrashAlt />
+      <div className={styles.singlePostContent}>
+        <div className={styles.singlePostInfo}>
+          <span className={styles.singlePostAuthor}>{post.username}</span>
+          <span className={styles.singlePostTimestamp}>{post.createdAt}</span>
         </div>
-      </h1>
 
-      <p className={styles.singlePostDescription}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ante, rutrum eget laoreet quis, mollis condimentum augue. Ut facilisis mollis felis et dapibus. Donec placerat odio nec sem ultricies, non congue ipsum molestie. Fusce posuere ante scelerisque dolor porttitor aliquet. Fusce eu tellus rhoncus, tincidunt eros at, malesuada ligula. Ut ac blandit felis, id dictum felis. Vestibulum risus nisl, interdum eget nisl id, cursus porta odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ante, rutrum eget laoreet quis, mollis condimentum augue. Ut facilisis mollis felis et dapibus. Donec placerat odio nec sem ultricies, non congue ipsum molestie. Fusce posuere ante scelerisque dolor porttitor aliquet. Fusce eu tellus rhoncus, tincidunt eros at, malesuada ligula. Ut ac blandit felis, id dictum felis. Vestibulum risus nisl, interdum eget nisl id, cursus porta odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ante, rutrum eget laoreet quis, mollis condimentum augue. Ut facilisis mollis felis et dapibus. Donec placerat odio nec sem ultricies, non congue ipsum molestie. Fusce posuere ante scelerisque dolor porttitor aliquet. Fusce eu tellus rhoncus, tincidunt eros at, malesuada ligula. Ut ac blandit felis, id dictum felis. Vestibulum risus nisl, interdum eget nisl id, cursus porta odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ante, rutrum eget laoreet quis, mollis condimentum augue. Ut facilisis mollis felis et dapibus. Donec placerat odio nec sem ultricies, non congue ipsum molestie. Fusce posuere ante scelerisque dolor porttitor aliquet. Fusce eu tellus rhoncus, tincidunt eros at, malesuada ligula. Ut ac blandit felis, id dictum felis. Vestibulum risus nisl, interdum eget nisl id, cursus porta odio.'
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ante, rutrum eget laoreet quis, mollis condimentum augue. Ut facilisis mollis felis et dapibus. Donec placerat odio nec sem ultricies, non congue ipsum molestie. Fusce posuere ante scelerisque dolor porttitor aliquet. Fusce eu tellus rhoncus, tincidunt eros at, malesuada ligula. Ut ac blandit felis, id dictum felis. Vestibulum risus nisl, interdum eget nisl id, cursus porta odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ante, rutrum eget laoreet quis, mollis condimentum augue. Ut facilisis mollis felis et dapibus. Donec placerat odio nec sem ultricies, non congue ipsum molestie. Fusce posuere ante scelerisque dolor porttitor aliquet. Fusce eu tellus rhoncus, tincidunt eros at, malesuada ligula. Ut ac blandit felis, id dictum felis. Vestibulum risus nisl, interdum eget nisl id, cursus porta odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ante, rutrum eget laoreet quis, mollis condimentum augue. Ut facilisis mollis felis et dapibus. Donec placerat odio nec sem ultricies, non congue ipsum molestie. Fusce posuere ante scelerisque dolor porttitor aliquet. Fusce eu tellus rhoncus, tincidunt eros at, malesuada ligula. Ut ac blandit felis, id dictum felis. Vestibulum risus nisl, interdum eget nisl id, cursus porta odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ante, rutrum eget laoreet quis, mollis condimentum augue. Ut facilisis mollis felis et dapibus. Donec placerat odio nec sem ultricies, non congue ipsum molestie. Fusce posuere ante scelerisque dolor porttitor aliquet. Fusce eu tellus rhoncus, tincidunt eros at, malesuada ligula. Ut ac blandit felis, id dictum felis. Vestibulum risus nisl, interdum eget nisl id, cursus porta odio.'
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ante, rutrum eget laoreet quis, mollis condimentum augue. Ut facilisis mollis felis et dapibus. Donec placerat odio nec sem ultricies, non congue ipsum molestie. Fusce posuere ante scelerisque dolor porttitor aliquet. Fusce eu tellus rhoncus, tincidunt eros at, malesuada ligula. Ut ac blandit felis, id dictum felis. Vestibulum risus nisl, interdum eget nisl id, cursus porta odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ante, rutrum eget laoreet quis, mollis condimentum augue. Ut facilisis mollis felis et dapibus. Donec placerat odio nec sem ultricies, non congue ipsum molestie. Fusce posuere ante scelerisque dolor porttitor aliquet. Fusce eu tellus rhoncus, tincidunt eros at, malesuada ligula. Ut ac blandit felis, id dictum felis. Vestibulum risus nisl, interdum eget nisl id, cursus porta odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ante, rutrum eget laoreet quis, mollis condimentum augue. Ut facilisis mollis felis et dapibus. Donec placerat odio nec sem ultricies, non congue ipsum molestie. Fusce posuere ante scelerisque dolor porttitor aliquet. Fusce eu tellus rhoncus, tincidunt eros at, malesuada ligula. Ut ac blandit felis, id dictum felis. Vestibulum risus nisl, interdum eget nisl id, cursus porta odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ante, rutrum eget laoreet quis, mollis condimentum augue. Ut facilisis mollis felis et dapibus. Donec placerat odio nec sem ultricies, non congue ipsum molestie. Fusce posuere ante scelerisque dolor porttitor aliquet. Fusce eu tellus rhoncus, tincidunt eros at, malesuada ligula. Ut ac blandit felis, id dictum felis. Vestibulum risus nisl, interdum eget nisl id, cursus porta odio.'
-      </p>
+        <div className={styles.singlePostTitle}>
+          <h1>{post.title}</h1>
+          <div className={styles.singlePostOptions}>
+            <FaEdit />
+            <FaTrashAlt />
+          </div>
+        </div>
+
+        <p className={styles.singlePostText}>{post.text}</p>
+      </div>
     </div>
-  );
+  )
 };
 
 export default SinglePost;

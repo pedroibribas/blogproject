@@ -1,14 +1,16 @@
+import { useContext } from 'react';
 import { MdLogout } from 'react-icons/md';
-// import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { Context } from '../../context/Context';
 import styles from './styles.module.scss';
 
-const user = {
-  isLoggedIn: true,
-  image: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'
-};
-
 function Header() {
+  const { user, dispatch } = useContext(Context);
+
+  const handleLogoutClick = () => {
+    dispatch({ type: 'LOGOUT' });
+  };
+
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
@@ -21,18 +23,21 @@ function Header() {
         </nav>
 
         <ul className={styles.rightContent}>
-          {user.isLoggedIn ? (
+          {user ? (
             <>
               <li>
-                <Link to="/settings">
-                  <img src={user.image} alt="Avatar do usuário" />
+                <Link className={styles.headerUsername} to="/settings">
+                  {user.name}
                 </Link>
               </li>
               <li>
-                <a className={styles.headerLogout} href="/">
+                <button
+                  className={styles.headerBtn}
+                  onClick={handleLogoutClick}
+                >
                   Sair
                   <MdLogout />
-                </a>
+                </button>
               </li>
             </>
           ) : (

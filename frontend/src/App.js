@@ -1,5 +1,7 @@
+import { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import { Context } from './context/Context';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -9,7 +11,7 @@ import Write from './pages/Write';
 import './styles/global.scss';
 
 function App() {
-  const userIsLoggedIn = true;
+  const { user } = useContext(Context);
 
   return (
     <>
@@ -19,19 +21,19 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/register"
-            element={userIsLoggedIn ? <Home /> : <Register />}
+            element={user ? <Home /> : <Register />}
           />
           <Route
             path="/login"
-            element={userIsLoggedIn ? <Home /> : <Login />}
+            element={user ? <Home /> : <Login />}
           />
           <Route
             path="/write"
-            element={userIsLoggedIn ? <Write /> : <Register />}
+            element={user ? <Write /> : <Register />}
           />
           <Route
             path="/settings"
-            element={userIsLoggedIn ? <Settings /> : <Register />}
+            element={user ? <Settings /> : <Register />}
           />
           <Route path="/post/:postId" element={<Single />} />
         </Routes>

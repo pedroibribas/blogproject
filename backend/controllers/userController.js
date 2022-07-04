@@ -97,9 +97,19 @@ const deleteUser = asyncHandler(async (req, res) => {
   res.status(200).json({ id: req.user.id });
 });
 
-// Get user | Private | GET /api/users/me
+// Get User | Public | GET /api/users/:id
+const getUser = asyncHandler(async (req, res) => {
+  const { username, description } = await User.findById(req.params.id);
+
+  res.status(200).json({
+    username,
+    description,
+  });
+});
+
+// Get Me | Private | GET /api/users/me
 const getMe = asyncHandler(async (req, res) => {
-  const { _id, username, email, picture } = await User.findById(req.user.id);
+  const { _id, username, email } = await User.findById(req.user.id);
   res.status(200).json({
     id: _id,
     username,
@@ -122,5 +132,6 @@ module.exports = {
   loginUser,
   updateUser,
   deleteUser,
+  getUser,
   getMe
 };

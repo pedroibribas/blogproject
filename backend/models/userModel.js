@@ -14,10 +14,6 @@ const userSchema = mongoose.Schema(
     password: {
       type: String,
       required: [true, 'Senha obrigatório']
-    },
-    picture: {
-      type: String,
-      default: ''
     }
   },
   {
