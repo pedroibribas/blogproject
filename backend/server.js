@@ -17,9 +17,9 @@ app.use(cors());
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/posts', require('./routes/postRoutes'));
 
-// Serve Frontend
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/build")));
+// Serve frontend
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
 
   app.get('*', (req, res) =>
     res.sendFile(
@@ -27,9 +27,9 @@ if (process.env.NODE_ENV === "production") {
     )
   );
 } else {
-  app.get('/', (req, res) => res.send('You should set to production'));
-};
+  app.get('/', (req, res) => res.send('Please set to production'));
+}
 
 app.listen(port, () => {
-  console.log(`Server started on port ${port}`.bgMagenta)
+  console.log(`Server started on port ${port}`)
 });
