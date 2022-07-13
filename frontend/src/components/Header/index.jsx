@@ -1,15 +1,34 @@
-import { useContext } from 'react';
-import { MdLogout } from 'react-icons/md';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Context } from '../../context/Context';
+import { FaSignInAlt, FaUser } from 'react-icons/fa';
+import { AuthContext } from '../../context/Context';
+import { HeaderLogout } from './HeaderLogout';
 import styles from './styles.module.scss';
 
-function Header() {
-  const { user, dispatch } = useContext(Context);
+export function Header() {
+  const { user } = useContext(AuthContext);
+  const [isActive, setIsActive] = useState({
+    isHomeActive: false,
+    isWriteActive: false,
+  });
 
-  const handleLogoutClick = () => {
-    dispatch({ type: 'LOGOUT' });
-  };
+  const handleLinkClick = e => {
+    if (e.target.id === 'Home') {
+      setIsActive(prevState => ({
+        ...prevState,
+        isHomeActive: true,
+        isWriteActive: false,
+      }))
+    }
+
+    if (e.target.id === 'Write') {
+      setIsActive(prevState => ({
+        ...prevState,
+        isHomeActive: false,
+        isWriteActive: true,
+      }))
+    }
+  }
 
   return (
     <header className={styles.headerContainer}>
@@ -17,47 +36,49 @@ function Header() {
         <Link className={styles.headerLogo} to="/">
           BlogIn
         </Link>
+
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/write">Escrever</Link>
+          <Link
+            id="Home"
+            className={isActive.isHomeActive ? styles.active : ''}
+            to="/"
+            onClick={handleLinkClick}
+          >
+            Home
+          </Link>
+          <Link
+            id="Write"
+            className={isActive.isWriteActive ? styles.active : ''}
+            to="/write"
+            onClick={handleLinkClick}
+          >
+            Escrever
+          </Link>
         </nav>
 
         <ul className={styles.rightContent}>
           {user ? (
             <>
               <li>
-                <Link className={styles.headerUsername} to="/settings">
-                  {user.name}
-                </Link>
-              </li>
-              <li>
-                <button
-                  className={styles.headerBtn}
-                  onClick={handleLogoutClick}
-                >
-                  Sair
-                  <MdLogout />
-                </button>
+                <HeaderLogout />
               </li>
             </>
           ) : (
             <>
               <li>
-                <Link to="/login">Login</Link>
+                <Link className={styles.loginBtn} to="/login">
+                  <FaSignInAlt /> Login
+                </Link>
               </li>
               <li>
-                <Link className={styles.headerBtn} to="/register">
-                  Registrar
+                <Link className={styles.registerBtn} to="/register">
+                  <FaUser /> Registrar
                 </Link>
               </li>
             </>
           )}
-
-          {/* <FaSearch className='search-icon' /> */}
         </ul>
       </div>
     </header>
   )
 };
-
-export default Header;

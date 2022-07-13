@@ -1,15 +1,19 @@
 import { createContext, useEffect, useReducer } from 'react';
 import Reducer from './Reducer';
 
+const user = JSON.parse(localStorage.getItem('user'));
+
 const INITIAL_STATE = {
-  user: JSON.parse(localStorage.getItem('user')) || null,
-  isFetching: false,
-  error: false
+  user: user ? user : null,
+  isSuccess: false,
+  isError: false,
+  isLoading: false,
+  message: '',
 };
 
-export const Context = createContext(INITIAL_STATE);
+export const AuthContext = createContext(INITIAL_STATE);
 
-export const ContextProvider = ({ children }) => {
+export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, INITIAL_STATE);
 
   useEffect(() => {
@@ -17,13 +21,15 @@ export const ContextProvider = ({ children }) => {
   }, [state.user]);
 
   return (
-    <Context.Provider value={{
+    <AuthContext.Provider value={{
       user: state.user,
-      isFetching: state.isFetching,
-      error: state.error,
+      isSuccess: state.isSuccess,
+      isError: state.isError,
+      isLoading: state.isLoading,
+      message: state.message,
       dispatch,
     }}>
       {children}
-    </Context.Provider>
+    </AuthContext.Provider>
   );
 };

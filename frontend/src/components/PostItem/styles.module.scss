@@ -1,24 +1,27 @@
 .postContainer {
-  max-width: 768px;
+  max-width: 756px;
+  padding: 2rem 2rem 5rem;
+  border: 1px solid var(--gray-300);
+  background: var(--white);
 
   .postAuthor {
     display: block;
-    margin-top: 0.25rem;
     color: var(--gray-500);
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 600;
   }
 
   .postTitle {
     display: block;
-    color: var(--gray-500);
+    color: var(--gray-700);
     font-size: 1.75rem;
+    line-height: 1.5;
   }
 
   .postTimestamp {
     margin-top: 0.5rem;
-    color: var(--gray-400);
-    font-size: 0.85rem;
+    color: var(--gray-500);
+    font-size: 1rem;
   }
 
   .postText {
@@ -27,7 +30,8 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
     margin-top: 1rem;
-    color: var(--gray-500);
+    color: var(--gray-700);
+    font-size: 1.25rem;
     text-overflow: ellipsis;
     line-height: 1.5;
   }

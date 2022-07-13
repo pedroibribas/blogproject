@@ -91,7 +91,7 @@ const deleteUser = asyncHandler(async (req, res) => {
     throw new Error('Usuário não autorizado');
   };
 
-  await Post.deleteMany({ username: req.user.id });
+  await Post.deleteMany({ user: req.user.id });
   await user.remove();
 
   res.status(200).json({ id: req.user.id });
@@ -117,7 +117,6 @@ const getMe = asyncHandler(async (req, res) => {
     picture
   });
 });
-
 
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {

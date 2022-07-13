@@ -1,17 +1,20 @@
-import { useEffect, useState } from "react";
 import axios from 'axios';
-import Posts from "../../components/Posts";
+import { useEffect, useState } from "react";
+import { PostItem } from '../../components/PostItem';
 import styles from './styles.module.scss';
 
-function Home() {
+export function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
-      await axios
-        .get('http://localhost:5000/api/posts')
-        .then(res => setPosts(res.data))
-        .catch(err => console.log(err));
+      try {
+        const res = await axios("/api/posts");
+
+        setPosts(res.data);
+      } catch (error) {
+        console.log(error.response.data)
+      }
     };
 
     fetchPosts();
@@ -19,9 +22,14 @@ function Home() {
 
   return (
     <div className={styles.homeContainer}>
-      <Posts posts={posts} />
+      <div className={styles.homeContent}>
+        {posts.map(post => (
+          <PostItem
+            key={post._id}
+            post={post}
+          />
+        ))}
+      </div>
     </div>
   );
 };
-
-export default Home;

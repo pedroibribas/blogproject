@@ -1,16 +1,35 @@
-export const LoginStart = (userCredentials) => ({
-  type: "LOGIN_START"
+export const RegisterPending = () => ({
+  type: 'REGISTER_PENDING'
 });
 
-export const LoginSuccess = (user) => ({
-  type: "LOGIN_SUCCESS",
+export const RegisterFulfilled = user => ({
+  type: 'REGISTER_FULFILLED',
   payload: user
 });
 
-export const LoginFailure = () => ({
-  type: "LOGIN_FAILURE"
+export const RegisterRejected = message => ({
+  type: 'REGISTER_REJECTED',
+  payload: message
+});
+
+export const Reset = () => ({
+  type: 'RESET'
+});
+
+export const LoginPending = () => ({
+  type: 'LOGIN_PENDING'
+});
+
+export const LoginFulfilled = user => ({
+  type: 'LOGIN_FULFILLED',
+  payload: user
+});
+
+export const LoginRejected = message => ({
+  type: 'LOGIN_REJECTED',
+  payload: message
 });
 
 export const Logout = () => ({
-  type: "LOGOUT"
+  type: 'LOGOUT'
 });

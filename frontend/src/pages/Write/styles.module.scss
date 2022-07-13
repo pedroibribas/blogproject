@@ -1,6 +1,11 @@
 .writeContainer {
-  width: 1024px;
+  width: 100%;
+}
+
+.writeContent {
+  max-width: 756px;
   margin: 4rem auto;
+  padding: 0 1rem;
 
   input,
   textarea {

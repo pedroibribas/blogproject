@@ -1,3 +1,11 @@
 .homeContainer {
-  margin: 4rem 2rem 0 6rem;
+  height: calc(100vh - var(--h-navbar));
+}
+
+.homeContent {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 4rem 1rem;
+  background-color: var(--gray-300);
 }

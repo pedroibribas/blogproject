@@ -1,12 +1,60 @@
-import { FaUpload } from 'react-icons/fa';
-import Sidebar from '../../components/Sidebar';
+import axios from 'axios';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../context/Context';
 import styles from './styles.module.scss';
 
-const user = {
-  image: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'
-};
+export function Settings() {
+  const { user, dispatch } = useContext(AuthContext);
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-function Settings() {
+  const handleUsernameInputChange = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handleEmailInputChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordInputChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.put('http://localhost:5000/api/users', {
+        username,
+        email,
+        password
+      }, {
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        }
+      });
+
+      dispatch({ type: 'LOGOUT' });
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
+
+  const handleDeleteAccClick = async (e) => {
+    try {
+      await axios.delete('http://localhost:5000/api/users', {
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        }
+      });
+
+      dispatch({ type: 'LOGOUT' });
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
+
   return (
     <div className={styles.settingsContainer}>
       <div className={styles.settingsContent}>
@@ -14,35 +62,22 @@ function Settings() {
           <span className={styles.settingsTitle}>
             Atualizar Seu Perfil
           </span>
-          <a href='/delete' className={styles.deleteAccount}>
+          <button onClick={handleDeleteAccClick} className={styles.deleteAccount}>
             Excluir Conta
-          </a>
+          </button>
         </div>
-        <form>
-          <div className={styles.formGroup}>
-            <span className={styles.settingsLabel}>Avatar</span>
-            <div className={styles.fileInputControl}>
-              <img src={user.image} alt='Avatar do usuário' />
-              <label htmlFor='file'>
-                <FaUpload />
-              </label>
-              <input
-                type='file'
-                id='file'
-                name='file'
-              />
-            </div>
-          </div>
+        <form onSubmit={handleFormSubmit}>
           <div className={styles.formGroup}>
             <label className={styles.settingsLabel}>
               Nome do Usuário
             </label>
             <input
               type='text'
-              id='name'
+              id='username'
               maxLength='20'
               placeholder='Insira um nome'
-              name='name'
+              onChange={handleUsernameInputChange}
+              name='username'
             />
           </div>
           <div className={styles.formGroup}>
@@ -53,6 +88,7 @@ function Settings() {
               type='email'
               id='email'
               placeholder='Insira um email'
+              onChange={handleEmailInputChange}
               name='email'
             />
           </div>
@@ -64,17 +100,15 @@ function Settings() {
               type='password'
               id='password'
               placeholder='Insira uma senha'
+              minLength='8'
               maxLength='12'
+              onChange={handlePasswordInputChange}
               name='password'
             />
           </div>
           <button type='submit'>Atualizar</button>
         </form>
       </div>
-
-      <Sidebar />
     </div>
   );
 };
-
-export default Settings;

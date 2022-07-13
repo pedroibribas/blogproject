@@ -1,11 +1,45 @@
 .singlePostContainer {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
+  background: var(--white);
 }
 
 .singlePostContent {
-  margin: 4rem auto 6rem;
+  max-width: var(--w-desktop);
+  margin: auto;
+  padding: 4rem 1rem;
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.5rem;
+    outline: none;
+  }
+
+  input {
+    margin-top: 1rem;
+    border: none;
+    border-bottom: 1px solid var(--gray-500);
+    color: var(--gray-700);
+    font-size: 1.5rem;
+
+    &:focus {
+      border-bottom: 3px solid var(--gray-500);
+    }
+  }
+
+  textarea {
+    height: 100vh;
+    margin-top: 1rem;
+    border: 1px solid var(--gray-500);
+    color: var(--gray-700);
+    font-size: 1.2rem;
+    line-height: 1.75;
+    letter-spacing: 0.5px;
+    resize: none; // handler for hiding resize
+
+    &:focus {
+      border: 2px solid var(--gray-500);
+    }
+  }
 
   .singlePostInfo {
     display: flex;
@@ -31,25 +65,13 @@
 
     h1 {
       margin-top: 1rem;
-      color: var(--gray-500);
       font-size: 2rem;
-    }
-
-    .singlePostOptions {
-      margin-left: 1rem;
-
-      svg {
-        margin-right: 0.25rem;
-        color: var(--gray-400);
-      }
     }
   }
 
   .singlePostText {
-    max-width: 756px;
+    height: 100%;
     margin-top: 1rem;
-    color: var(--gray-500);
-    font-family: 'Source Serif Pro', serif;
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.75;

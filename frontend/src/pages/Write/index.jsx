@@ -1,9 +1,49 @@
+import axios from 'axios';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../context/Context';
 import styles from './styles.module.scss';
 
 function Write() {
+  const { user } = useContext(AuthContext);
+
+  const [title, setTitle] = useState('');
+  const [text, setText] = useState('');
+
+  const handleTitleInputChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleTextInputChange = (e) => {
+    setText(e.target.value);
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post(
+        "/api/posts",
+        {
+          title,
+          text
+        },
+        {
+          headers: {
+            'Authorization': `Bearer ${user.token}`
+          }
+        }
+
+      )
+
+      res.data && window.location.replace('/');
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
+
   return (
     <div className={styles.writeContainer}>
-      <form>
+      <form onSubmit={handleFormSubmit} className={styles.writeContent}>
         <div className={styles.formGroup}>
           <input
             type='text'
@@ -12,6 +52,7 @@ function Write() {
             maxLength='40'
             autoFocus={true}
             placeholder='Título da publicação'
+            onChange={handleTitleInputChange}
             name="title"
           />
         </div>
@@ -20,13 +61,13 @@ function Write() {
           <textarea
             type='text'
             className={styles.formInput}
-            id="title"
+            id="text"
             cols={200}
             placeholder='Escreva suas ideias...'
-            name="title"
+            onChange={handleTextInputChange}
+            name="text"
           />
         </div>
-
         <button type='submit'>Publicar</button>
       </form>
     </div>

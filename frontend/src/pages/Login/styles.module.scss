@@ -1,60 +1,30 @@
 .loginContainer {
-  max-width: 375px;
-  margin: 2rem auto 0;
+  height: calc(100vh - var(--h-navbar));
+  background: var(--white);
+  padding-top: 4rem;
 
-  .loginTitle {
-    font-size: 2rem;
-  }
+  .loginContent {
+    max-width: var(--w-form-desktop);
+    margin: auto;
+    padding: 0 1rem;
 
-  .registerErrorMessage {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 2.5rem;
-    margin-top: 0.25rem;
-    padding-left: 1rem;
-    background: rgb(255, 95, 95);
-    color: white;
-  }
+    .loginHeading {
+      margin-bottom: 1rem;
+      color: var(--gray-700);
+      text-align: center;
 
-  form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 3rem;
-
-    .formGroup {
-      display: flex;
-      flex-direction: column;
-      margin-top: 1.25rem;
-
-      .loginInputLabel {
-        font-weight: 600;
+      svg {
+        color: var(--gray-300);
+        font-size: 3rem;
       }
 
-      input {
-        height: 2.75rem;
-        margin-top: 0.25rem;
-        padding-left: 0.5rem;
-        border: 1px solid #5a5a5a;
-        border-radius: 0.5rem;
-        font-size: 1rem;
+      h1 {
+        font-size: 2.5rem;
       }
-    }
 
-    button {
-      height: 2.75rem;
-      margin-top: 1rem;
-      padding: 0 1rem;
-      border: none;
-      border-radius: 0.5rem;
-      background-color: #000;
-      color: var(--white);
-      font-size: 1rem;
-      font-weight: 600;
-
-      &:disabled {
-        background: var(--gray-300);
-        cursor: not-allowed;
+      p {
+        font-size: 1.25rem;
+        margin-top: 1rem;
       }
     }
   }

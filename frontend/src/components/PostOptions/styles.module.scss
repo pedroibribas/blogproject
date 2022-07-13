@@ -1,0 +1,25 @@
+.postOptionsContainer {
+  display: flex;
+  margin-left: 1rem;
+
+  button {
+    display: flex;
+    align-items: center;
+    margin-right: 0.35rem;
+    border: none;
+    background: none;
+    color: var(--gray-400);
+
+    &:first-child {
+      color: rgb(20, 150, 20);
+    }
+
+    &:nth-child(2) {
+      color: rgb(220, 0, 0);
+    }
+  }
+
+  svg {
+    margin-left: 0.25rem;
+  }
+}
