@@ -1,5 +1,5 @@
 .singlePostContainer {
-  background: var(--white);
+  background: #fff;
 }
 
 .singlePostContent {
@@ -18,7 +18,7 @@
     margin-top: 1rem;
     border: none;
     border-bottom: 1px solid var(--gray-500);
-    color: var(--gray-700);
+    color: var(--clr-txt);
     font-size: 1.5rem;
 
     &:focus {
@@ -48,12 +48,12 @@
     .singlePostAuthor {
       color: var(--gray-500);
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .singlePostTimestamp {
       margin-top: 0.25rem;
-      color: var(--gray-400);
+      color: var(--gray-500);
       font-size: 1rem;
       font-weight: 400;
     }
@@ -70,15 +70,16 @@
   }
 
   .singlePostText {
+    max-width: 1020px;
     height: 100%;
-    margin-top: 1rem;
+    margin: 1rem auto 0;
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.75;
     letter-spacing: 0.5px;
+    white-space: pre-wrap;
 
     &::first-letter {
-      margin-left: 4rem;
       font-size: 2.75rem;
       font-weight: 600;
     }

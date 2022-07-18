@@ -1,8 +1,13 @@
 .homeContainer {
   display: flex;
+  margin: 0 auto 8rem;
+  max-width: 1120px;
+  height: 75vh;
 
   @media (max-width: 720px) {
     flex-direction: column;
+    height: 100vh;
+    margin: 0 auto;
   }
 }
 
@@ -39,10 +44,6 @@
   margin: 2rem 0;
   padding: 0 1rem;
 
-  @media (max-width: 720px) {
-    margin: 4rem 0;
-  }
-
   h2 {
     font-weight: 500;
     border-bottom: 1px solid rgb(44, 44, 44);
@@ -58,16 +59,4 @@
       grid-template-columns: 1fr;
     }
   }
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 5.5rem;
-  background: rgb(30, 30, 30);
-  color: rgb(146, 146, 146);
-  font-family: 'Roboto', serif;
-  font-size: 0.9rem;
-  text-align: center;
 }

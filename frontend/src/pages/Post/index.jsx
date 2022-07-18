@@ -18,6 +18,7 @@ export function Post() {
     const getData = async () => {
       try {
         const res = await axios.get("/api/posts/" + path);
+
         setPost(res.data);
         setTitle(res.data.title);
         setText(res.data.text);

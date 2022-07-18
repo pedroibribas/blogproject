@@ -11,6 +11,7 @@ import Write from './pages/Write';
 import { Header } from './components/Header';
 import './styles/global.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import { Footer } from './components/Footer';
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -28,6 +29,7 @@ function App() {
           <Route path="/post/:id" element={<Post />} />
         </Routes>
       </Router>
+      <Footer />
       <ToastContainer />
     </>
   )
