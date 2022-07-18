@@ -1,16 +1,19 @@
 .writeContainer {
   width: 100%;
+  background: #fff;
 }
 
 .writeContent {
   max-width: 756px;
-  margin: 4rem auto;
-  padding: 0 1rem;
+  margin: auto;
+  padding: 4rem 1rem;
 
   input,
   textarea {
     width: 100%;
-    border: none;
+    padding: 1rem;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 0.25rem;
     outline: none;
   }
 

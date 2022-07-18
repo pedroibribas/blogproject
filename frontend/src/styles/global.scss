@@ -5,6 +5,14 @@
 }
 
 :root {
+  --clr-bg: #f7c331;
+  --clr-bg-alt: #6b7a8f;
+  --clr-txt: #353535;
+  --clr-txt-alt: #ffffff;
+  --clr-txt-light: #d3d3d3;
+  --clr-accent: #f7882f;
+  --clr-logo: #000;
+
   --gray-100: rgb(244, 244, 244);
   --gray-300: rgb(223, 223, 223);
   --gray-400: #746c70;
@@ -19,7 +27,7 @@
   --w-mobile: 275px;
   --w-desktop: 1024px;
   --w-form-desktop: 455px;
-  --h-navbar: 4rem;
+  --h-navbar: 5rem;
 }
 
 html {
@@ -35,13 +43,13 @@ html {
 }
 
 body {
-  font-family: 'Source Serif Pro', 'Times New Roman', Times, serif;
-  color: rgb(62, 62, 62);
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  color: var(--clr-txt);
+  background-color: var(--clr-bg);
 }
 
-h1,
-p {
-  color: var(--gray-700);
+h1 {
+  font-size: 3rem;
 }
 
 a {
@@ -63,5 +71,5 @@ img {
 input,
 textarea,
 button {
-  font-family: 'Source Serif Pro', serif;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
