@@ -46,9 +46,13 @@
     flex-direction: column;
 
     .singlePostAuthor {
-      color: var(--gray-500);
+      color: var(--clr-txt);
       font-size: 1rem;
       font-weight: 500;
+
+      &:hover {
+        color: var(--clr-txt-light);
+      }
     }
 
     .singlePostTimestamp {

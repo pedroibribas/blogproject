@@ -14,11 +14,11 @@
 .heroContent {
   flex: 40%;
   margin-top: 10rem;
-  height: 100%;
   text-align: center;
   padding: 0 1rem;
 
   @media (max-width: 720px) {
+    flex: 20%;
     margin-top: 6rem;
   }
 

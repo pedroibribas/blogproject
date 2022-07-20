@@ -3,6 +3,7 @@ const { protect } = require('../middlewares/authMiddleware');
 const {
   getPosts,
   setPost,
+  getUserPosts,
   getPost,
   updatePost,
   deletePost
@@ -12,6 +13,7 @@ const router = express.Router();
 
 // @route /api/posts/
 router.route('/').get(getPosts).post(protect, setPost);
+router.route('/user/:username').get(getUserPosts);
 router
   .route('/:id')
   .get(getPost)

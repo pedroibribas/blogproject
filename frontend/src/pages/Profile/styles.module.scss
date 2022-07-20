@@ -1,0 +1,101 @@
+.profileContainer {
+  height: 100vh;
+  background: var(--clr-bg-alt);
+}
+
+.profileContent {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 1rem 0;
+
+  .profileHeading {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-left: 2rem;
+      padding: 0.25rem 0.5rem;
+      border: 1px solid var(--clr-txt);
+      border-radius: 0.25rem;
+      background: #fff;
+      color: var(--clr-txt);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+  }
+
+  .info {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 300;
+  }
+}
+
+.profilePosts {
+  margin-top: 4rem;
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+    margin-top: 1rem;
+
+    @media (max-width: 720px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.profilePostContainer {
+  padding: 2rem;
+  border-radius: 0.25rem;
+  background: var(--clr-bg-post);
+
+  @media (max-width: 720px) {
+    padding: 1rem;
+  }
+
+  .profilePostAuthor {
+    display: block;
+    color: var(--clr-txt-light);
+    font-size: 0.75rem;
+    font-weight: 300;
+  }
+
+  .profilePostTitle {
+    display: block;
+    margin-top: 0.75rem;
+    color: var(--clr-txt-alt);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .profilePostTimestamp {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--clr-txt-light);
+    font-size: 0.75rem;
+    font-weight: 300;
+  }
+
+  .profilePostText {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    margin-top: 0.5rem;
+    color: var(--clr-txt-alt);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+}

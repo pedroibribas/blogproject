@@ -16,23 +16,29 @@ Utilizei React Toastify para gerar notificações ao usuário.
 
 ## Screenshots
 
-- Tela inicial de visualização das publicações
-<img width="725px" src="./assets/github/screenshots/tela_home.jpg">
+### Tela inicial de visualização das publicações
 
-- Tela inicial de visualização das publicações
-<img width="725px" src="./assets/github/screenshots/tela_register.jpg">
+<img width="500px" src="./frontend/src/assets/github/screenshots/tela_home.jpg">
 
-- Tela inicial de visualização das publicações
-<img width="725px" src="./assets/github/screenshots/tela_login.jpg">
+### Tela inicial de visualização das publicações
 
-- Tela inicial de visualização das publicações
-<img width="725px" src="./assets/github/screenshots/tela_read.jpg">
+<img width="500px" src="./frontend/src/assets/github/screenshots/tela_register.jpg">
 
-- Tela inicial de visualização das publicações
-<img width="725px" src="./assets/github/screenshots/tela_edit.jpg">
+### Tela inicial de visualização das publicações
 
-- Tela inicial de visualização das publicações
-<img width="725px" src="./assets/github/screenshots/tela_write.jpg">
+<img width="500px" src="./frontend/src/assets/github/screenshots/tela_login.jpg">
+
+### Tela inicial de visualização das publicações
+
+<img width="500px" src="./frontend/src/assets/github/screenshots/tela_read.jpg">
+
+### Tela inicial de visualização das publicações
+
+<img width="500px" src="./frontend/src/assets/github/screenshots/tela_edit.jpg">
+
+### Tela inicial de visualização das publicações
+
+<img width="500px" src="./frontend/src/assets/github/screenshots/tela_write.jpg">
 
 ## Pré-requisitos
 
@@ -46,16 +52,19 @@ As seguintes tecnologias foram usadas nos projeto:
 - [Express](https://expressjs.com/)
 - [MongoDb Atlas](https://www.mongodb.com/atlas/database)
 - [ReactJs](https://pt-br.reactjs.org/)
+- [SASS](https://sass-lang.com/)
+- [Axios](https://www.npmjs.com/package/axios)
+- [React Router](https://reactrouter.com/)
 
 ## Autor
+
 **Pedro Ribas**  
 <a href="https://linkedin.com/in/pedroibribas/" target="_blank">
-  <img align="center" src="https://img.shields.io/badge/-pedroibribas-blue?style=flat&logo=linkedin" alt="linkedin"/>
+<img align="center" src="https://img.shields.io/badge/-pedroibribas-blue?style=flat&logo=linkedin" alt="linkedin"/>
 </a>
 <a href="https://instagram.com/pedroivo.ribas/" target="_blank">
-  <img align="center" src="https://img.shields.io/badge/-pedroibribas-%23E4405F?style=flat&logo=instagram&logoColor=white" alt="instagram"/>
+<img align="center" src="https://img.shields.io/badge/-pedroibribas-%23E4405F?style=flat&logo=instagram&logoColor=white" alt="instagram"/>
 </a>
-
 
 ## Licença
 

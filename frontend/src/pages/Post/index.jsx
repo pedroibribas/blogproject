@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './styles.module.scss';
 import { AuthContext } from '../../context/Context';
 import { BtnGroup } from '../../components/BtnGroup';
@@ -12,7 +12,7 @@ export function Post() {
   const [editMode, setEditMode] = useState(false);
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
-  const path = useLocation().pathname.split("/")[2]; // Get post ID as path
+  const path = useLocation().pathname.split("/")[2];
 
   useEffect(() => {
     const getData = async () => {
@@ -91,15 +91,30 @@ export function Post() {
     <div className={styles.singlePostContainer}>
       <div className={styles.singlePostContent}>
         <div className={styles.singlePostInfo}>
-          <span className={styles.singlePostAuthor}>{post.username}</span>
-          <span className={styles.singlePostTimestamp}>{post.createdAt}</span>
+          <Link
+            to={'/profile/' + post.username}
+            className={styles.singlePostAuthor}
+          >
+            {post.username}
+          </Link>
+          <span className={styles.singlePostTimestamp}>
+            {post.createdAt}
+          </span>
         </div>
 
         <div className={styles.singlePostTitle}>
           {!editMode ? (
             <h1>{post.title}</h1>
           ) : (
-            <input type="text" id="title" maxLength="40" autoFocus={true} onChange={handleTitleInputChange} name="title" value={title} />
+            <input
+              type="text"
+              id="title"
+              maxLength="40"
+              autoFocus={true}
+              onChange={handleTitleInputChange}
+              name="title"
+              value={title}
+            />
           )}
 
           {!editMode && post.user === user?._id && (
@@ -113,7 +128,14 @@ export function Post() {
         {!editMode ? (
           <p className={styles.singlePostText}>{post.text}</p>
         ) : (
-          <textarea type="text" id="text" cols={200} onChange={handleTextInputChange} name="text" value={text} />
+          <textarea
+            type="text"
+            id="text"
+            cols={200}
+            onChange={handleTextInputChange}
+            name="text"
+            value={text}
+          />
         )}
 
         {editMode && (

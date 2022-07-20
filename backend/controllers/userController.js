@@ -51,7 +51,7 @@ const loginUser = asyncHandler(async (req, res) => {
   if (user && validation) {
     res.status(200).json({
       _id: user.id,
-      name: user.username,
+      username: user.username,
       email: user.email,
       token: generateToken(user._id)
     });

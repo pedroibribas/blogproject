@@ -7,20 +7,20 @@ export function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const getPosts = async () => {
       try {
-        const res = await axios("/api/posts");
+        const res = await axios.get("/api/posts");
 
         const postsArr = res.data;
         const posts = postsArr.reverse().slice(0, 6);
 
         setPosts(posts);
       } catch (error) {
-        console.log(error.response.data)
+        console.log(error.response.data);
       }
     };
 
-    fetchPosts();
+    getPosts();
   }, []);
 
   return (

@@ -75,60 +75,65 @@ export function RegisterForm() {
   return (
     <form className={styles.registerFormContainer} onSubmit={handleFormSubmit}>
       <div className={styles.formGroup}>
-        <label className={styles.registerInputLabel}>Nome</label>
+        <label className={styles.registerInputLabel}>Username</label>
+        <span>
+          O nome de usuário deve conter 10 caracteres. É válido apenas letras,
+          números, &ldquo;.&rdquo; &#40;ponto&#41;, &ldquo;-&rdquo;
+          &#40;hífen&#41; ou &ldquo;_&rdquo; &#40;underline&#41;.
+        </span>
         <input
-          type='text'
+          type="text"
           className={styles.formControl}
-          id='username'
-          minLength='8'
-          maxLength='20'
-          placeholder='Ex.: João da Silva'
+          id="username"
+          pattern="[a-zA-Z0-9_.-]{10}"
+          maxLength='10'
+          placeholder="Ex.: joao_12345"
           onChange={handleInputChange}
-          name='username'
+          name="username"
         />
       </div>
       <div className={styles.formGroup}>
         <label className={styles.registerInputLabel}>Email</label>
         <input
-          type='email'
+          type="email"
           className={styles.formControl}
-          id='email'
-          placeholder='Ex.: joãodasilva@domínio.com'
+          id="email"
+          placeholder="Ex.: joãodasilva@domínio.com"
           onChange={handleInputChange}
-          name='email'
+          name="email"
         />
       </div>
       <div className={styles.formGroup}>
         <label className={styles.registerInputLabel}>Senha</label>
         <input
-          type='password'
+          type="password"
           className={styles.formControl}
-          id='password'
-          placeholder='Insira uma senha'
-          minLength='8'
-          maxLength='12'
+          id="password"
+          placeholder="Insira uma senha"
+          minLength="8"
+          maxLength="12"
           onChange={handleInputChange}
-          name='password'
+          name="password"
           value={password}
         />
       </div>
       <div className={styles.formGroup}>
         <label className={styles.registerInputLabel}>Confirmar senha</label>
         <input
-          type='password'
+          type="password"
           className={styles.formControl}
-          id='confPassword'
-          placeholder='Insira novamente sua senha'
-          minLength='8'
-          maxLength='12'
+          id="confPassword"
+          placeholder="Insira novamente sua senha"
+          minLength="8"
+          maxLength="12"
           onChange={handleInputChange}
-          name='confPassword'
+          name="confPassword"
           value={confPassword}
         />
       </div>
       <div className={styles.formGroup}>
-        <button type='submit'>Cadastrar</button>
+        <button type="submit">Cadastrar</button>
       </div>
     </form>
-  );
+  )
 };

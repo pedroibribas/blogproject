@@ -1,17 +1,22 @@
 .settingsContainer {
-  display: flex;
+  height: 850px;
+  background: var(--clr-bg-alt);
+  padding-top: 4rem;
 }
 
 .settingsContent {
-  flex: 9;
-  padding: 4rem 2rem 0 6rem;
+  max-width: var(--w-form-desktop);
+  margin: auto;
+  padding: 0 1rem;
 
   .settingsHeading {
-    max-width: 756px;
     display: flex;
     justify-content: space-between;
 
     .settingsTitle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       font-size: 2rem;
     }
 
@@ -21,56 +26,47 @@
     }
   }
 
-  form {
+  .settingsForm {
     margin-top: 3rem;
+  }
+}
 
-    input {
-      width: 35%;
-      height: 2.5rem;
-      margin-top: 0.25rem;
-      padding-left: 0.5rem;
-      font-size: 1rem;
-    }
+.editFormContainer {
+  display: flex;
+  flex-direction: column;
 
-    button {
-      height: 2rem;
-      margin-top: 1rem;
-      padding: 0 1rem;
-      border: none;
-      border-radius: 0.5rem;
-      background-color: #000;
-      color: var(--white);
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.25rem;
+
+    .inputLabel {
       font-weight: 600;
     }
 
-    .formGroup {
-      display: flex;
-      flex-direction: column;
-      margin-top: 1.25rem;
+    .formControl {
+      height: 2.75rem;
+      margin-top: 0.25rem;
+      padding-left: 0.5rem;
+      border: 1px solid #d3d3d3;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+  }
 
-      .settingsLabel {
-        font-size: 1.25rem;
-        font-weight: 600;
-      }
+  button {
+    height: 2.75rem;
+    padding: 0 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #000;
 
-      .fileInputControl {
-        img {
-          width: 150px;
-          height: 150px;
-          margin-top: 0.25rem;
-          border-radius: 1.5rem;
-        }
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
 
-        svg {
-          margin-left: 1rem;
-          font-size: 1.25rem;
-          cursor: pointer;
-        }
-
-        input[type='file'] {
-          display: none;
-        }
-      }
+    &:active {
+      background-color: rgb(45, 63, 90);
     }
   }
 }

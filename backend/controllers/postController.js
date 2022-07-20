@@ -28,21 +28,16 @@ const setPost = asyncHandler(async (req, res) => {
   res.status(200).json(post);
 });
 
-// Get posts | Private | GET /api/posts/:id
+// Get posts | Private | GET /api/posts/user/:username
 const getUserPosts = asyncHandler(async (req, res) => {
-  if (!mongoose.Types.ObjectId.isValid(req.query.user)) {
-    res.status(400);
-    throw new Error('Usuário inválido');
-  };
-
-  const user = await User.findById(req.query.user);
+  const user = await User.findOne({ username: req.params.username });
 
   if (!user) {
     res.status(400);
     throw new Error('Usuário não encontrado');
   };
 
-  const posts = await Post.find({ user: req.query.user });
+  const posts = await Post.find({ user: user.id });
 
   res.status(200).json(posts);
 });
@@ -100,6 +95,7 @@ const deletePost = asyncHandler(async (req, res) => {
 module.exports = {
   getPosts,
   setPost,
+  getUserPosts,
   getPost,
   updatePost,
   deletePost,

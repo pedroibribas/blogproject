@@ -1,13 +1,24 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { ImPencil2 } from 'react-icons/im';
 import { AuthContext } from '../../context/Context';
-import { HeaderLogout } from './HeaderLogout';
+import { UserMenu } from './UserMenu';
 import styles from './styles.module.scss';
 
 export function Header() {
   const { user } = useContext(AuthContext);
+  const [isOpenMenuActive, setIsOpenMenuActive] = useState(false);
+  const path = useLocation().pathname;
+
+  useEffect(() => {
+    setIsOpenMenuActive(false)
+  }, [path]);
+
+  const handleMenuBtnClick = () => {
+    if (isOpenMenuActive === false) setIsOpenMenuActive(true);
+    if (isOpenMenuActive === true) setIsOpenMenuActive(false);
+  };
 
   return (
     <header className={styles.headerContainer}>
@@ -23,7 +34,12 @@ export function Header() {
             {user ? (
               <>
                 <li>
-                  <HeaderLogout />
+                  <button
+                    className={styles.openMenuBtn}
+                    onClick={handleMenuBtnClick}
+                  >
+                    {user.username}
+                  </button>
                 </li>
               </>
             ) : (
@@ -41,6 +57,9 @@ export function Header() {
           </ul>
         </nav>
 
+        {isOpenMenuActive && (
+          <UserMenu setIsOpenMenuActive={setIsOpenMenuActive} />
+        )}
       </div>
     </header>
   )

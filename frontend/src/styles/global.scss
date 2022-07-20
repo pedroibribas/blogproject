@@ -6,7 +6,8 @@
 
 :root {
   --clr-bg: #f7c331;
-  --clr-bg-alt: #6b7a8f;
+  --clr-bg-alt: #fff;
+  --clr-bg-post: #6b7a8f;
   --clr-txt: #353535;
   --clr-txt-alt: #ffffff;
   --clr-txt-light: #d3d3d3;
@@ -57,6 +58,8 @@ a {
 }
 
 button {
+  border: none;
+  background: none;
   cursor: pointer;
 }
 
@@ -71,5 +74,5 @@ img {
 input,
 textarea,
 button {
-  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
