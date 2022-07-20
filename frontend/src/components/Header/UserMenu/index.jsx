@@ -12,6 +12,7 @@ export function UserMenu({ setIsOpenMenuActive }) {
 
   const handleLogoutClick = () => {
     dispatch(Logout());
+
     setIsOpenMenuActive(false);
   };
 

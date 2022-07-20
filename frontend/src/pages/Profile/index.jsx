@@ -6,11 +6,22 @@ import styles from './styles.module.scss';
 
 export function Profile() {
   const { user } = useContext(AuthContext);
+  const [username, setUsername] = useState('');
   const [posts, setPosts] = useState([]);
   const path = useLocation().pathname.split('/')[2];
   const postsAmount = posts?.length;
 
   useEffect(() => {
+    const getUsername = async () => {
+      try {
+        const res = await axios.get("/api/users/" + path);
+        setUsername(res.data.username);
+      } catch (error) {
+        console.log(error.response.data);
+
+      }
+    };
+
     const getPosts = async () => {
       try {
         const res = await axios.get("/api/posts/user/" + path);
@@ -21,6 +32,7 @@ export function Profile() {
       }
     };
 
+    getUsername();
     getPosts();
   }, [path]);
 
@@ -29,8 +41,10 @@ export function Profile() {
       <div className={styles.profileContent}>
         <div className={styles.profileHeading}>
           <div className={styles.title}>
-            <h1>{user.username}</h1>
-            <Link to="/settings">Editar perfil</Link>
+            <h1>{username}</h1>
+            {path === user?.username && (
+              <Link to="/settings">Editar perfil</Link>
+            )}
           </div>
           <span className={styles.info}>
             <strong>{postsAmount}</strong> publicações

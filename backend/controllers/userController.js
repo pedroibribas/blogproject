@@ -97,14 +97,11 @@ const deleteUser = asyncHandler(async (req, res) => {
   res.status(200).json({ id: req.user.id });
 });
 
-// Get User | Public | GET /api/users/:id
+// Get User | Public | GET /api/users/:username
 const getUser = asyncHandler(async (req, res) => {
-  const { username, description } = await User.findById(req.params.id);
+  const { username } = await User.findOne({ username: req.params.username });
 
-  res.status(200).json({
-    username,
-    description,
-  });
+  res.status(200).json({ username });
 });
 
 // Get Me | Private | GET /api/users/me

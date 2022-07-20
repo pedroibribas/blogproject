@@ -7,13 +7,13 @@ import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { Post } from './pages/Post';
+import { Profile } from './pages/Profile';
 import { Settings } from './pages/Settings';
 import Write from './pages/Write';
 import { Footer } from './components/Footer';
 
 import './styles/global.scss';
 import 'react-toastify/dist/ReactToastify.css';
-import { Profile } from './pages/Profile';
 
 function App() {
   const { user } = useContext(AuthContext);

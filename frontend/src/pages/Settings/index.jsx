@@ -8,12 +8,10 @@ import styles from './styles.module.scss';
 export function Settings() {
   const { user, dispatch } = useContext(AuthContext);
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
     password: '',
     confPassword: ''
   });
-  const { username, email, password, confPassword } = formData;
+  const { password, confPassword } = formData;
 
   const handleInputChange = e => {
     setFormData(prevState => (
@@ -32,8 +30,6 @@ export function Settings() {
     } else {
       try {
         await axios.put("/api/users", {
-          username,
-          email,
           password
         }, {
           headers: {
@@ -76,26 +72,6 @@ export function Settings() {
         </div>
         <div className={styles.settingsForm}>
           <form className={styles.editFormContainer} onSubmit={handleFormSubmit}>
-            <div className={styles.formGroup}>
-              <label className={styles.inputLabel}>
-                Novo nome de Usuário
-              </label>
-              <span>
-                O nome de usuário deve conter 10 caracteres. É válido apenas letras,
-                números, &ldquo;.&rdquo; &#40;ponto&#41;, &ldquo;-&rdquo;
-                &#40;hífen&#41; ou &ldquo;_&rdquo; &#40;underline&#41;.
-              </span>
-              <input
-                type='text'
-                id='username'
-                className={styles.formControl}
-                pattern="[a-zA-Z0-9_.-]{10}"
-                maxLength='10'
-                placeholder="Ex.: joao_12345"
-                onChange={handleInputChange}
-                name='username'
-              />
-            </div>
             <div className={styles.formGroup}>
               <label className={styles.inputLabel}>
                 Nova senha
